@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CV web de Amós Abelleira, desarrollador full stack con formación técnica, prácticas en software y capacidad de aprendizaje continuo.">
+<meta property="og:title" content="CV Web - Amós Abelleira">
+<meta property="og:description" content="Desarrollador full stack con base técnica en Java, JavaScript, Angular, React y bases de datos.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/profile.jpg">
+<title>Currículum - Amós Abelleira Pérez</title>
+<style>
+:root {
+--bg-body: #FAF8F5;
+--bg-card: #FFFFFF;
+--bg-card-alt: #FDFCFB;
+--bg-accent: #F5F2ED;
+
+--text-primary: #3D3D3D;
+--text-secondary: #6B6B6B;
+--text-muted: #9A9A9A;
+
+--border: #E8E4E0;
+--border-hover: #D4CEC8;
+
+--accent: #7C9A82;
+--accent-hover: #6B8A72;
+
+--shadow-sm: 0 1px 3px rgba(61, 61, 61, 0.04);
+--shadow-md: 0 4px 12px rgba(61, 61, 61, 0.06);
+
+--radius: 12px;
+}
+
+[data-theme="dark"] {
+--bg-body: #1A1A1D;
+--bg-card: #252529;
+--bg-card-alt: #2D2D32;
+--bg-accent: #333338;
+
+--text-primary: #E8E6E3;
+--text-secondary: #A8A8AB;
+--text-muted: #6B6B6E;
+
+--border: #3A3A3E;
+--border-hover: #4A4A4F;
+
+--accent: #7C9A82;
+--accent-hover: #8FAA93;
+
+--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+--shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+background-color: var(--bg-body);
+color: var(--text-primary);
+line-height: 1.7;
+min-height: 100vh;
+transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+max-width: 900px;
+margin: 0 auto;
+padding: 40px 20px;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+position: fixed;
+top: 20px;
+right: 20px;
+z-index: 100;
+}
+
+.theme-toggle button {
+background: var(--bg-card);
+border: 1px solid var(--border);
+border-radius: 30px;
+padding: 8px 16px;
+font-family: 'IBM Plex Mono', monospace;
+font-size: 0.75rem;
+color: var(--text-secondary);
+cursor: pointer;
+display: flex;
+align-items: center;
+gap: 8px;
+transition: all 0.2s ease;
+box-shadow: var(--shadow-sm);
+}
+
+.theme-toggle button:hover {
+border-color: var(--accent);
+color: var(--accent);
+}
+
+.theme-toggle button i {
+font-size: 0.9rem;
+}
+
+[data-theme="dark"] .theme-toggle .light-icon {
+display: none;
+}
+
+[data-theme="dark"] .theme-toggle .dark-icon {
+display: inline-block;
+}
+
+[data-theme="light"] .theme-toggle .light-icon {
+display: inline-block;
+}
+
+[data-theme="light"] .theme-toggle .dark-icon {
+display: none;
+}
+
+.prompt {
+font-family: 'IBM Plex Mono', monospace;
+font-size: 0.7rem;
+color: var(--text-muted);
+margin-bottom: 12px;
+letter-spacing: 0.5px;
+text-transform: lowercase;
+}
+
+.prompt span {
+color: var(--accent);
+font-weight: 500;
+}
+
+/* Header */
+.header {
+background: var(--bg-card);
+border: 1px solid var(--border);
+border-radius: var(--radius);
+padding: 32px;
+margin-bottom: 24px;
+box-shadow: var(--shadow-sm);
+transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.profile-section {
+display: flex;
+align-items: center;
+gap: 28px;
+}
+
+.profile-photo {
+flex-shrink: 0;
+}
+
+.profile-photo img {
+width: 110px;
+height: 110px;
+border-radius: 50%;
+object-fit: cover;
+border: 3px solid var(--bg-body);
+box-shadow: var(--shadow-md);
+transition: border-color 0.3s ease;
+}
+
+.profile-info h1 {
+font-family: 'IBM Plex Sans', sans-serif;
+font-size: 1.75rem;
+font-weight: 600;
+letter-spacing: -0.3px;
+margin-bottom: 4px;
+color: var(--text-primary);
+}
+
+.profile-info .title {
+font-size: 0.95rem;
+color: var(--text-secondary);
+margin-bottom: 16px;
+font-weight: 400;
+}
+
+.contact-info {
+display: flex;
+flex-wrap: wrap;
+gap: 16px;
+font-size: 0.85rem;
+}
+
+.contact-info a {
+color: var(--text-secondary);
+text-decoration: none;
+display: flex;
+align-items: center;
+gap: 6px;
+transition: color 0.2s;
+}
+
+.contact-info a:hover {
+color: var(--accent);
+}
+
+.contact-info a i {
+font-size: 0.9rem;
+width: 16px;
+text-align: center;
+}
+
+/* Main Content */
+.main-content {
+padding-bottom: 40px;
+}
+
+.section {
+background: var(--bg-card);
+border: 1px solid var(--border);
+border-radius: var(--radius);
+padding: 28px 32px;
+margin-bottom: 20px;
+box-shadow: var(--shadow-sm);
+transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.section h2 {
+font-family: 'IBM Plex Sans', sans-serif;
+font-size: 1.1rem;
+font-weight: 600;
+margin-bottom: 20px;
+color: var(--text-primary);
+letter-spacing: -0.2px;
+}
+
+.section > p {
+color: var(--text-secondary);
+font-size: 0.95rem;
+line-height: 1.8;
+}
+
+/* Timeline */
+.timeline {
+position: relative;
+padding-left: 24px;
+}
+
+.timeline::before {
+content: '';
+position: absolute;
+left: 0;
+top: 8px;
+bottom: 8px;
+width: 1px;
+background: var(--border);
+}
+
+.timeline-item {
+position: relative;
+margin-bottom: 24px;
+}
+
+.timeline-item:last-child {
+margin-bottom: 0;
+}
+
+.timeline-item::before {
+content: '';
+position: absolute;
+left: -28px;
+top: 10px;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: var(--accent);
+border: 2px solid var(--bg-card);
+}
+
+.timeline-date {
+font-family: 'IBM Plex Mono', monospace;
+font-size: 0.7rem;
+color: var(--text-muted);
+text-transform: uppercase;
+letter-spacing: 0.5px;
+margin-bottom: 4px;
+}
+
+.timeline-content h3 {
+font-size: 1rem;
+font-weight: 600;
+margin-bottom: 2px;
+color: var(--text-primary);
+}
+
+.timeline-content .institution {
+color: var(--text-secondary);
+font-size: 0.9rem;
+margin-bottom: 8px;
+}
+
+.timeline-content .description {
+color: var(--text-muted);
+font-size: 0.85rem;
+}
+
+.experience-list {
+margin-top: 12px;
+padding-left: 16px;
+}
+
+.experience-list li {
+color: var(--text-secondary);
+font-size: 0.875rem;
+margin-bottom: 6px;
+line-height: 1.6;
+}
+
+/* Skills */
+.skills-grid {
+display: grid;
+gap: 16px;
+}
+
+.skill-category h3 {
+font-family: 'IBM Plex Mono', monospace;
+font-size: 0.7rem;
+font-weight: 500;
+text-transform: uppercase;
+letter-spacing: 0.8px;
+color: var(--text-muted);
+margin-bottom: 10px;
+}
+
+.skill-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+}
+
+.skill-tag {
+background: var(--bg-accent);
+color: var(--text-secondary);
+padding: 6px 14px;
+border-radius: 20px;
+font-size: 0.8rem;
+font-weight: 500;
+transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+background: var(--accent);
+color: white;
+}
+
+/* Projects */
+.projects-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+gap: 16px;
+}
+
+.project-card {
+background: var(--bg-card-alt);
+border: 1px solid var(--border);
+border-radius: 10px;
+padding: 20px;
+transition: all 0.25s ease;
+}
+
+.project-card:hover {
+border-color: var(--border-hover);
+box-shadow: var(--shadow-md);
+transform: translateY(-2px);
+}
+
+.project-card h3 {
+font-size: 0.975rem;
+font-weight: 600;
+margin-bottom: 8px;
+color: var(--text-primary);
+}
+
+.project-card p {
+color: var(--text-secondary);
+font-size: 0.85rem;
+margin-bottom: 14px;
+line-height: 1.6;
+}
+
+.project-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 6px;
+margin-bottom: 12px;
+}
+
+.project-tags span {
+background: var(--bg-accent);
+color: var(--text-muted);
+padding: 4px 10px;
+border-radius: 12px;
+font-size: 0.7rem;
+font-weight: 500;
+}
+
+.project-link {
+color: var(--accent);
+text-decoration: none;
+font-size: 0.8rem;
+font-weight: 500;
+display: inline-flex;
+align-items: center;
+gap: 4px;
+transition: opacity 0.2s;
+}
+
+.project-link:hover {
+opacity: 0.8;
+}
+
+/* Languages */
+.languages-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+gap: 12px;
+}
+
+.language-item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 14px 16px;
+background: var(--bg-accent);
+border-radius: 8px;
+}
+
+.language-name {
+font-weight: 500;
+color: var(--text-primary);
+font-size: 0.9rem;
+}
+
+.language-level {
+color: var(--text-muted);
+font-size: 0.8rem;
+}
+
+/* Certifications */
+.certifications-list {
+display: grid;
+gap: 10px;
+}
+
+.certification-item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 12px 16px;
+background: var(--bg-accent);
+border-radius: 8px;
+flex-wrap: wrap;
+gap: 8px;
+}
+
+.certification-item h3 {
+font-size: 0.875rem;
+font-weight: 500;
+color: var(--text-primary);
+}
+
+.certification-item p {
+color: var(--text-muted);
+font-size: 0.8rem;
+}
+
+/* Footer */
+.footer {
+background: var(--bg-card);
+border: 1px solid var(--border);
+border-radius: var(--radius);
+padding: 28px;
+text-align: center;
+box-shadow: var(--shadow-sm);
+transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.footer p {
+color: var(--text-muted);
+font-size: 0.8rem;
+margin-bottom: 16px;
+}
+
+.social-links {
+display: flex;
+justify-content: center;
+gap: 20px;
+}
+
+.social-links a {
+color: var(--text-secondary);
+font-size: 1.2rem;
+transition: all 0.2s;
+width: 40px;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+background: var(--bg-accent);
+}
+
+.social-links a:hover {
+color: var(--accent);
+background: var(--bg-accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+.container {
+padding: 20px 16px;
+}
+
+.theme-toggle {
+top: 12px;
+right: 12px;
+}
+
+.profile-section {
+flex-direction: column;
+text-align: center;
+}
+
+.contact-info {
+justify-content: center;
+}
+
+.profile-info h1 {
+font-size: 1.5rem;
+}
+
+.section {
+padding: 24px;
+}
+
+.timeline {
+padding-left: 20px;
+}
+
+.timeline-item::before {
+left: -24px;
+width: 6px;
+height: 6px;
+}
+}
+
+/* Selection */
+::selection {
+background: var(--accent);
+color: white;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+width: 6px;
+}
+
+::-webkit-scrollbar-track {
+background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+background: var(--border);
+border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: var(--text-muted);
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script>
+  // Inicialización inmediata del tema para prevenir FOUC
+  (function() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  })();
+</script>
+</head>
+<body>
+<div class="theme-toggle">
+<button id="theme-btn" onclick="toggleTheme()" aria-label="Alternar entre modo claro y oscuro">
+            <i class="fas fa-moon light-icon"></i>
+            <i class="fas fa-sun dark-icon"></i>
+            <span class="theme-label">Dark</span>
+        </button>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <div class="prompt">./init-profile.sh</div>
+            <div class="profile-section">
+                <div class="profile-photo">
+                    <img src="assets/profile.jpg" alt="Foto de perfil de Amós Abelleira">
+                </div>
+                <div class="profile-info">
+                    <h1>Amós Abelleira Pérez</h1>
+                    <p class="title">Desarrollador Full Stack</p>
+                    <div class="contact-info">
+<a href="mailto:amosabelleira@gmail.com"><i class="fas fa-envelope"></i> amosabelleira@gmail.com</a>
+<a href="tel:+34619427410"><i class="fas fa-phone"></i> +34 619 427 410</a>
+                        <a href="https://github.com/EstudiaGit" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="section">
+                <div class="prompt">cat sobre_mi.txt</div>
+                <h2>Sobre mí</h2>
+                <p>Soy Amós, empezando en el desarrollo full stack con base técnica sólida y experiencia práctica en aplicaciones web. Aprendo rápido, escribo código pensando en quien lo va a mantener después y me tomo en serio lo que hago. Busco un primer equipo profesional donde sumar, no donde ocupar sitio.</p>
+            </section>
+
+            <section class="section">
+                <div class="prompt">ls -la formacion/</div>
+                <h2>Formación Académica</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-content">
+                            <h3>C.F.G.S. Desarrollo de Aplicaciones Multiplataforma</h3>
+                            <p class="institution">IES El Rincón</p>
+                            <p class="description">Aplicaciones multiplataforma, interfaces y bases de datos</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2022</div>
+                        <div class="timeline-content">
+                            <h3>Programación Java 8 - IFCD15</h3>
+                            <p class="institution">FEMXA</p>
+                            <p class="description">Java SE 8, POO, excepciones y desarrollo de aplicaciones</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2021</div>
+                        <div class="timeline-content">
+                            <h3>Desarrollo de aplicaciones con tecnologías web - IFCD0210</h3>
+                            <p class="institution">Certificado de Profesionalidad</p>
+                            <p class="description">Programación en entorno cliente, entorno servidor e implantación de aplicaciones web</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="prompt">cat experiencia.log</div>
+                <h2>Experiencia Profesional</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Abril - Mayo 2024</div>
+                        <div class="timeline-content">
+                            <h3>Prácticas en desarrollo de software</h3>
+                            <p class="institution">Inventia Plus S.L.</p>
+                            <ul class="experience-list">
+                                <li>Participación en proyectos de diversa índole dentro del ciclo de desarrollo</li>
+                                <li>Apoyo en tareas de diseño, desarrollo y salida a producción</li>
+                                <li>Exposición a flujos de trabajo reales en equipo técnico</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="prompt">git config --list | grep skills</div>
+                <h2>Habilidades Técnicas</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Lenguajes de Programación</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Frameworks y Tecnologías</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Spring Boot</span>
+                            <span class="skill-tag">Angular</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Ionic</span>
+                            <span class="skill-tag">Flutter</span>
+                            <span class="skill-tag">Expo</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Bases de Datos</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">Firebase</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Herramientas</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Eclipse</span>
+                            <span class="skill-tag">IntelliJ</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">NetBeans</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">GitHub</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="prompt">ls proyectos/</div>
+                <h2>Proyectos</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Inventia Plus S.L.</h3>
+                        <p>Periodo de prácticas del 1 de abril al 29 de mayo de 2024, participando en proyectos de diversa índole y apoyando tareas de diseño, desarrollo y salida a producción.</p>
+                        <div class="project-tags">
+                            <span>Prácticas</span>
+                            <span>Diseño</span>
+                            <span>Desarrollo</span>
+                            <span>Producción</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Enfoque actual</h3>
+                        <p>Buscando consolidarme en desarrollo full stack con una base técnica orientada a Java, JavaScript/TypeScript, frameworks modernos y aplicaciones conectadas a bases de datos.</p>
+                        <div class="project-tags">
+                            <span>Java</span>
+                            <span>Spring Boot</span>
+                            <span>Angular</span>
+                            <span>React</span>
+                            <span>SQL</span>
+                        </div>
+                        <a href="https://github.com/EstudiaGit" class="project-link" target="_blank">Ver GitHub</a>
+                    </div>
+                </div>
+</section>
+
+            <section class="section">
+                <div class="prompt">locale -a</div>
+                <h2>Idiomas</h2>
+                <div class="languages-grid">
+                    <div class="language-item">
+                        <span class="language-name">Español</span>
+                        <span class="language-level">Nativo</span>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">Inglés</span>
+                        <span class="language-level">B1 - Intermedio</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="prompt">dpkg -l | grep cert</div>
+                <h2>Certificaciones y Cursos</h2>
+                <div class="certifications-list">
+                    <div class="certification-item">
+                        <h3>Programación Java 8 - IFCD15</h3>
+                        <p>FEMXA - 2022</p>
+                    </div>
+                    <div class="certification-item">
+                        <h3>Desarrollo de aplicaciones con tecnologías web - IFCD0210</h3>
+                        <p>Certificado de Profesionalidad - 2021</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+<footer class="footer">
+<p>&copy; 2025 Amós Abelleira. CV web orientado a oportunidades full stack.</p>
+<div class="social-links">
+<a href="https://github.com/EstudiaGit" target="_blank" aria-label="Repositorio de GitHub"><i class="fab fa-github"></i></a>
+<a href="mailto:amosabelleira@gmail.com" aria-label="Enviar correo electrónico"><i class="fas fa-envelope"></i></a>
+</div>
+</footer>
+    </div>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('theme-btn');
+  const label = btn.querySelector('.theme-label');
+
+  if (html.getAttribute('data-theme') === 'light') {
+    html.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+    label.textContent = 'Light';
+  } else {
+    html.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+    label.textContent = 'Dark';
+  }
+}
+
+// Update button label on load based on current theme
+const currentTheme = document.documentElement.getAttribute('data-theme');
+if (currentTheme === 'dark') {
+  document.querySelector('.theme-label').textContent = 'Light';
+}
+</script>
+</body>
+</html>
